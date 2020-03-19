@@ -21,11 +21,25 @@ $(function() {
   $("#find-taxi-btn").click(function() {
     let apiURL = "https://api.data.gov.sg/v1/transport/taxi-availability";
     axios.get(apiURL).then(function(response) {
+
+      // create the marker cluster
+      let taxiMarkers = L.markerClusterGroup();
+
       let taxiCoordinates = response.data.features[0].geometry.coordinates;
+     
+      // go through each of the taxi coordinate 
       for (let t of taxiCoordinates) {
-        let m = L.marker([t[1], t[0]]);
-        m.addTo(map);
+        let lat = t[1];
+        let lng = t[0];
+
+        // create a new marker of the taxi
+        let m = L.marker([lat, lng]);
+
+        // add the new marker to the marker cluster
+        taxiMarkers.addLayer(m);
       }
+      // add the cluster to the map
+      map.addLayer(taxiMarkers);
     });
   });
 });

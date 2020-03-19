@@ -22,3 +22,14 @@ layer.addTo(map);
 // CREATING MARKERS ///////////////////////////////////////////
 let marker = L.marker([1.359,103.989]);
 marker.addTo(map);
+marker.bindPopup("<p>Changi Airport</p>")
+
+// ADD A CIRCLE ///////////////////////////////////////////////
+let circle = L.circle([1.43, 103.8354],{
+    radius: 500,
+    color:'black', // border
+    fillColor:'red', // colour to fill in the circle
+    fillOpacity:0.3
+})
+circle.addTo(map); // the map variable is our map object
+circle.bindPopup('<p>Yishun. Be careful!</p>')
