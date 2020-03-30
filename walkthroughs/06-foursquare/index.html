@@ -16,10 +16,14 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="show-cycling">Hide Cycling Paths</button>
-    <button id="show-construction">Hide Under Construction Paths</button>
 
-    <div id="map"></div>
+    <div id="container">
+        <div id="map"></div>
+        <div id="sidebar">
+            <h1>Details</h1>
+            <h2 id="venue-name"></h2>
+        </div>
+    </div>
 
     <script
       src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -33,8 +37,6 @@
       integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
     <script src="my-map.js"></script>
     <script src="app.js"></script>
   </body>
