@@ -21,7 +21,12 @@ $(function() {
     axios.get('data/cycling-path-network-geojson.geojson').then(function(r){
         cyclingLayer = L.geoJson(r.data,{
             onEachFeature:(feature, layer) => {
-                console.log(feature.properties.Description);
+                let desc = $(feature.properties.Description);
+                let tableCells = desc.find('td');
+                for (let eachCell of tableCells){
+                    console.log(eachCell);
+                }
+
                 layer.bindPopup(feature.properties.Description);
             }
         }).addTo(map);
